@@ -61,6 +61,13 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => ['w
                 'uses' => 'PublicController@getSearch',
             ]);
 
+
+            Route::get('old-news/{id}/{slug}/{lang}', [
+                'as'   => 'public.old-news',
+                'uses' => 'PublicController@getNewPost',
+            ]);
+
+
             Route::get(SlugHelper::getPrefix(Tag::class, 'tag') . '/{slug}', [
                 'as'   => 'public.tag',
                 'uses' => 'PublicController@getTag',

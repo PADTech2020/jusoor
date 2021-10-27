@@ -1,5 +1,9 @@
 RewriteEngine on
 
+RewriteBase /
+RewriteRule ^details/(.*)/(.*)/(.*)  old-news/$1/$2/$3 [L,R=301]
+
+
 # Redirect Trailing Slashes If Not A Folder...
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
@@ -8,3 +12,22 @@ RewriteRule ^ %1 [L,R=301]
 RewriteCond %{REQUEST_URI} !^public
 
 RewriteRule ^(.*)$ public/$1 [L]
+
+
+
+
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
+# RewriteBase /
+# RewriteRule ^blog/(.*) news/$1 [L,R=301]
+# </IfModule>
+
+# # BEGIN WordPress
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
+# RewriteBase /
+# RewriteRule ^index\.php$ - [L]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule . /index.php [L]
+# </IfModule>
